@@ -39,5 +39,4 @@ function Team() {
     </div>
   );
 }
-
 export default Team;
