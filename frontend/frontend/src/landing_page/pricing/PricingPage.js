@@ -1,9 +1,9 @@
 import React from 'react';
 
 import Hero from './Hero';
-import LeftSection from './LeftSection';
-import RightSection from './RightSection';
-import Universe from './Universe';
+import LeftSection from '../products/LeftSection';
+import RightSection from '../products/RightSection';
+import Universe from '../products/Universe';
 
 import Navbar from '../../Navbar';
 import Footer from '../../Footer';
