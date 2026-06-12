@@ -10,7 +10,7 @@ import React from 'react';
                 Now, we are breaking ground with our technology.
             </h1>
         </div>
-    <div
+    <div 
     className="row p-5 mt-5 border-top text-muted" style={{ lineHeight: "1.8", fontSize: "1.2em"}}>
     <div className="col-6 p-5">
         <p>

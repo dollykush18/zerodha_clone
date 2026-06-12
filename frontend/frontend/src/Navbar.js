@@ -4,7 +4,8 @@
  function Navbar() {
     return ( 
        
-            <nav class="navbar navbar-expand-lg  border-bottom"
+            <nav 
+            class="navbar navbar-expand-lg  border-bottom"
             style={{ backgroundColor: "#FFF"}}>
   <div class="container p-2">
     <Link class="navbar-brand" to="/">
@@ -23,7 +24,7 @@
           <Link class="nav-link active" to = "/about">About</Link>
         </li>
          <li class="nav-item">
-          <Link class="nav-link active" to = "/product">Product</Link>
+          <Link class="nav-link active" to = "/products">Products</Link>
         </li>
          <li class="nav-item">
           <Link class="nav-link active" to = "/pricing">Pricing</Link>
