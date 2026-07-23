@@ -4,19 +4,22 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const dns = require("dns"); 
+dns.setServers([ '1.1.1.1', '8.8.8.8' ])
 
 const { HoldingsModel } = require("./model/HoldingsModel");
 
 const { PositionsModel } = require("./model/PositionsModel");
 const { OrdersModel } = require("./model/OrdersModel");
 
-const PORT = process.env.PORT || 3003;
+const PORT = process.env.PORT || 3002;
 const uri = process.env.MONGO_URL;
 
 const app = express();
 
 app.use(cors());
 app.use(bodyParser.json());
+app.use(express.json());
 
 // app.get("/addHoldings", async (req, res) => {
 //   let tempHoldings = [
@@ -198,6 +201,7 @@ app.get("/allPositions", async (req, res) => {
 });
 
 app.post("/newOrder", async (req, res) => {
+   
   let newOrder = new OrdersModel({
     name: req.body.name,
     qty: req.body.qty,
@@ -205,7 +209,7 @@ app.post("/newOrder", async (req, res) => {
     mode: req.body.mode,
   });
 
-  newOrder.save();
+    newOrder.save();
 
   res.send("Order saved!");
 });

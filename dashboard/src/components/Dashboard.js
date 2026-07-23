@@ -20,11 +20,11 @@ const Dashboard = () => {
       <div className="content">
         <Routes>
           <Route exact path="/" element={<Summary />} />
-          <Route path="/Orders" element={<Orders />} />
-          <Route path="/Holdings" element={<Holdings />} />
-          <Route path="/Positions" element={<Positions />} />
-          <Route path="/Funds" element={<Funds />} />
-          <Route path="/Apps" element={<Apps />} />
+          <Route path="/orders" element={<Orders />} />
+          <Route path="/holdings" element={<Holdings />} />
+          <Route path="/positions" element={<Positions />} />
+          <Route path="/funds" element={<Funds />} />
+          <Route path="/apps" element={<Apps />} />
         </Routes>
       </div>
     </div>
