@@ -23,9 +23,9 @@ function Login() {
 
       alert(res.data.message);
 
-      localStorage.setItem("user", JSON.stringify(res.data.user));
+     // localStorage.setItem("user", JSON.stringify(res.data.user));
 
-      window.location.href = "/dashboard";
+      window.location.href = "http://localhost:3001";
 
     } catch (err) {
       alert(err.response?.data?.message || "Login Failed");
