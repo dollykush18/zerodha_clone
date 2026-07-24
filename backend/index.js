@@ -1,8 +1,11 @@
 require("dotenv").config();
 
+const bcrypt = require("bcrypt");
+
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const UserModel = require("./model/UserModel");
 const cors = require("cors");
 const dns = require("dns"); 
 dns.setServers([ '1.1.1.1', '8.8.8.8' ])
@@ -212,7 +215,78 @@ app.post("/newOrder", async (req, res) => {
     newOrder.save();
 
   res.send("Order saved!");
+
 });
+app.post("/signup", async (req, res) => {
+  try {
+    const { fullname, email, phone, password } = req.body;
+
+    const existingUser = await UserModel.findOne({ email });
+
+    if (existingUser) {
+      return res.status(400).json({
+        message: "Email already exists",
+      });
+    }
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    const user = new UserModel({
+      fullname,
+      email,
+      phone,
+      password: hashedPassword,
+    });
+
+    await user.save();
+
+    res.status(201).json({
+      message: "Account created successfully",
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({
+      message: err.message,
+    });
+  }
+});
+app.post("/login", async (req, res) => {
+  try {
+
+    const { email, password } = req.body;
+
+    const user = await UserModel.findOne({ email });
+
+    if (!user) {
+      return res.status(400).json({
+        message: "User not found",
+      });
+    }
+
+    const isMatch = await bcrypt.compare(password, user.password);
+
+    if (!isMatch) {
+      return res.status(400).json({
+        message: "Incorrect Password",
+      });
+    }
+
+    res.status(200).json({
+      message: "Login Successful",
+      user,
+    });
+
+  } catch (err) {
+
+    console.log(err);
+
+    res.status(500).json({
+      message: err.message,
+    });
+
+  }
+});
+
 
 app.listen(PORT, () => {
   console.log("App started!");
