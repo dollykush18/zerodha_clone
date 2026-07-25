@@ -28,7 +28,7 @@ function Signup() {
     }
 
     try {
-      const res = await axios.post("http://localhost:3002/signup", {
+      const res = await axios.post("https://zerodha-backend-fd8s.onrender.com/signup", {
         fullname: user.fullname,
         email: user.email,
         phone: user.phone,

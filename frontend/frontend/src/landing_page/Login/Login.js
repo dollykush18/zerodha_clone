@@ -19,14 +19,14 @@ function Login() {
     e.preventDefault();
 
     try {
-      const res = await axios.post("http://localhost:3002/login", user);
+      const res = await axios.post("https://zerodha-backend-fd8s.onrender.com/login", user);
 
       alert(res.data.message);
 
      // localStorage.setItem("user", JSON.stringify(res.data.user));
 
-      window.location.href = "http://localhost:3001";
-
+     // window.location.href = "https://zerodha-backend-fd8s.onrender.com";
+     window.location.href = "http://localhost:3001";
     } catch (err) {
       alert(err.response?.data?.message || "Login Failed");
     }
