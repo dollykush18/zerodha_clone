@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 
 import axios from "axios";
 
-import GeneralContext from "./GeneralContext";
+import GeneralContext from "./TempContext";
 
 import { Tooltip, Grow } from "@mui/material";
 
