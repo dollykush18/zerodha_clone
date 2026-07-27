@@ -35,7 +35,11 @@ function Signup() {
         password: user.password,
       });
 
-      alert(res.data.message || "Account Created Successfully");
+      //alert(res.data.message || "Account Created Successfully");
+    
+    alert(res.data.message || "Account Created Successfully");
+window.location.href = "/login";
+
     } catch (err) {
       alert(err.response?.data?.message || "Signup Failed");
     }

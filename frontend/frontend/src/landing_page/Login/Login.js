@@ -26,7 +26,10 @@ function Login() {
      // localStorage.setItem("user", JSON.stringify(res.data.user));
 
      // window.location.href = "https://zerodha-backend-fd8s.onrender.com";
-     window.location.href = "http://localhost:3001";
+     window.location.href = "http://localhost:3000";
+   // window.location.href =
+ // "https://zerodha-clone-git-main-dolly-kushwaha.vercel.app";
+    
     } catch (err) {
       alert(err.response?.data?.message || "Login Failed");
     }
