@@ -26,7 +26,7 @@ function Login() {
      // localStorage.setItem("user", JSON.stringify(res.data.user));
 
      // window.location.href = "https://zerodha-backend-fd8s.onrender.com";
-     window.location.href = "https://zerodha-clone-latx-iavjlb6pd-dolly-kushwaha.vercel.app";
+     window.location.href = "https://zerodha-clone-latx-3uh140ebi-dolly-kushwaha.vercel.app/";
    // window.location.href =
  // "https://zerodha-clone-git-main-dolly-kushwaha.vercel.app";
     
